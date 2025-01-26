@@ -33,7 +33,7 @@ int ConvertBinaryToDecimal(const char* binary_input, int bit_count) {
     return decimal_value;
 }
 
-void CheckAndPrintBinarySum() {
+void CheckAndPrintBinary() {
     printf("Please enter your number's bit count: ");
     scanf("%d", &bit_count);
 
@@ -56,22 +56,52 @@ void CheckAndPrintBinarySum() {
     int decimal1 = ConvertBinaryToDecimal(binary_input1, bit_count);
     int decimal2 = ConvertBinaryToDecimal(binary_input2, bit_count);
 
-    int sum = decimal1 + decimal2;
-    int subtract = decimal1 - decimal2;
-    int product = decimal1 * decimal2;
-    float division = decimal1 / decimal2;
-    int modulus = decimal1 % decimal2;
+    char choice;
+    printf("\nChoose an operation to perform:\n");
+    printf("W) Summation\n");
+    printf("A) Subtraction\n");
+    printf("S) Multiplication\n");
+    printf("D) Division\n");
+    printf("E) Modulus\n");
+    printf("\nEnter your choice: ");
+    scanf(" %c", &choice);
 
-    printf("First binary number: %s\n", binary_input1);
-    printf("Second binary number: %s\n", binary_input2);
-    printf("First Number + Second Number: %d\n", sum);
-    printf("First Number - Second Number: %d\n", subtract);
-    printf("First Number * Second Number: %d\n", product);
-    printf("First Number / Second Number: %.2f\n", division);
-    printf("First Number modulus Second Number: %d\n", modulus);
+    switch (choice) {
+        case 'W':
+        case 'w':
+            printf("\nFirst Number + Second Number: %d\n", decimal1 + decimal2);
+            break;
+        case 'A':
+        case 'a':
+            printf("\nFirst Number - Second Number: %d\n", decimal1 - decimal2);
+            break;
+        case 'S':
+        case 's':
+            printf("\nFirst Number * Second Number: %d\n", decimal1 * decimal2);
+            break;
+        case 'D':
+        case 'd':
+            if (decimal2 != 0) {
+                printf("\nFirst Number / Second Number: %.2f\n", (float)decimal1 / decimal2);
+            } else {
+                printf("\nError: Division by zero is not allowed.\n");
+            }
+            break;
+        case 'E':
+        case 'e':
+            if (decimal2 != 0) {
+                printf("\nFirst Number modulus Second Number: %d\n", decimal1 % decimal2);
+            } else {
+                printf("\nError: Modulus by zero is not allowed.\n");
+            }
+            break;
+        default:
+            printf("\nError: Invalid choice.\n");
+            break;
+    }
 }
 
 int main() {
-    CheckAndPrintBinarySum();
+    CheckAndPrintBinary();
     return 0;
 }
