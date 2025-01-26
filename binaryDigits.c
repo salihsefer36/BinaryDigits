@@ -57,10 +57,18 @@ void CheckAndPrintBinarySum() {
     int decimal2 = ConvertBinaryToDecimal(binary_input2, bit_count);
 
     int sum = decimal1 + decimal2;
+    int subtract = decimal1 - decimal2;
+    int product = decimal1 * decimal2;
+    float division = decimal1 / decimal2;
+    int modulus = decimal1 % decimal2;
 
     printf("First binary number: %s\n", binary_input1);
     printf("Second binary number: %s\n", binary_input2);
-    printf("Sum in decimal: %d\n", sum);
+    printf("First Number + Second Number: %d\n", sum);
+    printf("First Number - Second Number: %d\n", subtract);
+    printf("First Number * Second Number: %d\n", product);
+    printf("First Number / Second Number: %.2f\n", division);
+    printf("First Number modulus Second Number: %d\n", modulus);
 }
 
 int main() {
